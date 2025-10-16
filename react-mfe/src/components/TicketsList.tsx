@@ -100,7 +100,7 @@ export const TicketsList: React.FC<TicketsListProps> = ({ apiHost }) => {
       <div style={styles.header}>
         <h2 style={styles.title}>🎫 Tickets (React MFE)</h2>
         <p style={styles.subtitle}>This entire view is rendered by React</p>
-        {!apiHost.includes('localhost:3000') && (
+        {!apiHost.includes('localhost:3001') && (
           <div style={styles.mockDataBanner}>
             ℹ️ Using mock data (backend not connected)
           </div>

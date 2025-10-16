@@ -19,7 +19,7 @@ module.exports = function (environment) {
     },
 
     // API Configuration
-    API_HOST: 'http://localhost:3000',
+    API_HOST: 'http://localhost:3001',
     
     // React MFE Configuration
     REACT_MFE_URL: 'http://localhost:5000',
@@ -27,7 +27,7 @@ module.exports = function (environment) {
 
   if (environment === 'development') {
     // Development-specific config
-    ENV.API_HOST = 'http://localhost:3000';
+    ENV.API_HOST = 'http://localhost:3001';
     ENV.REACT_MFE_URL = 'http://localhost:5000';
   }
 
