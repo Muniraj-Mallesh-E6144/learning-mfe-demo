@@ -1,0 +1,122 @@
+{{!-- Dashboard Template - Fully rendered by Ember --}}
+{{page-title "Dashboard"}}
+
+<div class="dashboard-container">
+  <h2>📊 Dashboard</h2>
+  <p class="subtitle">This page is rendered by Ember</p>
+
+  {{#if @model.usingMockData}}
+    <div class="mock-data-banner">
+      ℹ️ Using mock data (backend not connected)
+    </div>
+  {{/if}}
+
+  {{#if @model.error}}
+    <div class="error-banner">
+      <p>{{@model.error}}</p>
+    </div>
+  {{else}}
+    {{!-- Stats Cards --}}
+    <div class="stats-grid">
+      <div class="stat-card stat-card-primary">
+        <div class="stat-number">{{@model.total_tickets}}</div>
+        <div class="stat-label">Total Tickets</div>
+      </div>
+
+      <div class="stat-card stat-card-warning">
+        <div class="stat-number">{{@model.open_tickets}}</div>
+        <div class="stat-label">Open Tickets</div>
+      </div>
+
+      <div class="stat-card stat-card-info">
+        <div class="stat-number">{{@model.in_progress_tickets}}</div>
+        <div class="stat-label">In Progress</div>
+      </div>
+
+      <div class="stat-card stat-card-success">
+        <div class="stat-number">{{@model.resolved_tickets}}</div>
+        <div class="stat-label">Resolved</div>
+      </div>
+    </div>
+
+    {{!-- Users Stats --}}
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">{{@model.total_users}}</div>
+        <div class="stat-label">Total Users</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">{{@model.total_agents}}</div>
+        <div class="stat-label">Agents</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">{{@model.total_customers}}</div>
+        <div class="stat-label">Customers</div>
+      </div>
+    </div>
+
+    {{!-- Recent Tickets --}}
+    <div class="recent-tickets">
+      <h3>Recent Tickets</h3>
+      {{#if @model.recent_tickets}}
+        <table class="tickets-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Status</th>
+              <th>Priority</th>
+              <th>Requester</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each @model.recent_tickets as |ticket|}}
+              <tr>
+                <td>{{ticket.id}}</td>
+                <td>{{ticket.title}}</td>
+                <td><span class="badge badge-{{ticket.status}}">{{ticket.status}}</span></td>
+                <td><span class="badge badge-{{ticket.priority}}">{{ticket.priority}}</span></td>
+                <td>{{ticket.requester.name}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{else}}
+        <p class="no-data">No recent tickets</p>
+      {{/if}}
+    </div>
+  {{/if}}
+</div>
+
+{{!--
+LEARNING NOTES:
+
+1. Model Access:
+   - @model comes from the route's model() hook
+   - @ prefix for arguments passed from parent
+   - this. prefix for component/controller properties
+
+2. {{#each}} Helper:
+   - Loops over arrays
+   - |ticket| is the block parameter (current item)
+   - Can also use {{#each array as |item index|}} for index
+
+3. Conditional Rendering:
+   - {{#if condition}} ... {{else}} ... {{/if}}
+   - {{#if}} {{else if}} {{else}} {{/if}}
+   - {{#unless condition}} (opposite of if)
+
+4. CSS Classes:
+   - badge-{{ticket.status}} dynamically generates classes
+   - badge-open, badge-resolved, etc.
+   - Style these in app/styles/app.css
+
+5. Why This Page is Ember:
+   - Simple data display
+   - No complex interactions
+   - Shows Ember's templating capabilities
+   - Demonstrates accessing backend API via Ember service
+--}}
+

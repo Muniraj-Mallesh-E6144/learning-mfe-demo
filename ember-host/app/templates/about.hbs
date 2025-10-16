@@ -1,0 +1,110 @@
+{{!-- About Template - Simple Ember page --}}
+{{page-title "About"}}
+
+<div class="about-container">
+  <h2>About This Project</h2>
+  
+  <section class="about-section">
+    <h3>🎯 Purpose</h3>
+    <p>
+      This project demonstrates microfrontend architecture using Ember as the host
+      application and React as the microfrontend. It mirrors the architecture used
+      in Freshservice's production application.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h3>🏗️ Architecture</h3>
+    <ul>
+      <li><strong>Backend:</strong> Ruby on Rails 7 (API mode)</li>
+      <li><strong>Host App:</strong> Ember.js 5 (Octane edition)</li>
+      <li><strong>Microfrontend:</strong> React 18 with Vite</li>
+      <li><strong>UI Library:</strong> Custom React component library</li>
+      <li><strong>Integration:</strong> Webpack Module Federation</li>
+      <li><strong>Communication:</strong> MessageChannel API</li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h3>🚀 Integration Patterns</h3>
+    <ol>
+      <li><strong>Full Ember Page:</strong> Dashboard (traditional Ember)</li>
+      <li><strong>Hybrid Page:</strong> Users (Ember + embedded React component)</li>
+      <li><strong>Full React MFE:</strong> Tickets (React handles everything)</li>
+    </ol>
+  </section>
+
+  <section class="about-section">
+    <h3>🔧 Tech Stack</h3>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <h4>Backend</h4>
+        <ul>
+          <li>Ruby 3.1</li>
+          <li>Rails 7.0</li>
+          <li>SQLite3</li>
+          <li>Puma</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <h4>Frontend</h4>
+        <ul>
+          <li>Ember.js 5.4</li>
+          <li>Glimmer Components</li>
+          <li>Ember CLI</li>
+          <li>Ember Data</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <h4>Microfrontend</h4>
+        <ul>
+          <li>React 18.3</li>
+          <li>Vite 5</li>
+          <li>Module Federation</li>
+          <li>TypeScript</li>
+        </ul>
+      </div>
+      <div class="tech-card">
+        <h4>Build Tools</h4>
+        <ul>
+          <li>pnpm</li>
+          <li>Webpack 5</li>
+          <li>Babel</li>
+          <li>PostCSS</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h3>📚 Learning Resources</h3>
+    <ul>
+      <li><a href="https://guides.emberjs.com/" target="_blank">Ember.js Guides</a></li>
+      <li><a href="https://react.dev/" target="_blank">React Documentation</a></li>
+      <li><a href="https://webpack.js.org/concepts/module-federation/" target="_blank">Module Federation</a></li>
+      <li><a href="https://guides.rubyonrails.org/" target="_blank">Rails Guides</a></li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h3>🎓 Key Learnings</h3>
+    <ul>
+      <li>How to integrate React into an Ember application</li>
+      <li>Module Federation for loading remote JavaScript modules</li>
+      <li>MessageChannel API for cross-framework communication</li>
+      <li>Building API-first backends with Rails</li>
+      <li>Microfrontend architecture patterns</li>
+      <li>Gradual migration strategies</li>
+    </ul>
+  </section>
+
+  <div class="cta-section">
+    <h3>Ready to explore?</h3>
+    <div class="button-group">
+      <LinkTo @route="dashboard" class="btn btn-primary">View Dashboard</LinkTo>
+      <LinkTo @route="users" class="btn btn-secondary">Browse Users</LinkTo>
+      <LinkTo @route="tickets" class="btn btn-secondary">See Tickets</LinkTo>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,9 @@
+import Application from 'ember-host/app';
+import config from 'ember-host/config/environment';
+import { setApplication } from '@ember/test-helpers';
+import { start } from 'ember-qunit';
+
+setApplication(Application.create(config.APP));
+
+start();
+

@@ -1,0 +1,39 @@
+/* Card Component Styles */
+
+.ui-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.ui-card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.ui-card__header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.ui-card__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.ui-card__body {
+  padding: 1.5rem;
+}
+
+.ui-card__footer {
+  padding: 1rem 1.5rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #ecf0f1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+

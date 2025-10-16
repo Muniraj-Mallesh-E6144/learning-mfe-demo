@@ -1,0 +1,198 @@
+# Learning MFE Demo - Root .gitignore
+# Comprehensive ignore file for Ember + React + Rails monorepo
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# ============================================
+# Editor & IDE
+# ============================================
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.iml
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+.atom/
+
+# ============================================
+# Node.js / JavaScript
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+.npm
+.eslintcache
+.yarn-integrity
+
+# Build outputs
+dist/
+build/
+.cache/
+.parcel-cache/
+.next/
+out/
+.nuxt/
+.vuepress/dist
+
+# Testing
+coverage/
+*.lcov
+.nyc_output
+.vitest/
+
+# ============================================
+# Ruby / Rails
+# ============================================
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# Rails specific
+/.bundle/
+/vendor/bundle
+/log/*
+!/log/.keep
+/storage/*
+!/storage/.keep
+/public/system
+/public/uploads
+.byebug_history
+
+# Ruby version files (keep these for rbenv/rvm)
+!.ruby-version
+!.ruby-gemset
+
+# ============================================
+# Ember.js
+# ============================================
+# Ember build
+/ember-host/dist/
+/ember-host/tmp/
+/ember-host/.ember-build/
+
+# Ember dependencies
+/ember-host/bower_components/
+
+# Ember testing
+/ember-host/testem.log
+
+# ============================================
+# React / Vite
+# ============================================
+# Vite
+/react-mfe/dist/
+/react-mfe/dist-ssr/
+.vite/
+
+# Module Federation temp
+.__mf__temp/
+__mf__/
+
+# ============================================
+# TypeScript
+# ============================================
+*.tsbuildinfo
+*.d.ts.map
+
+# ============================================
+# Environment Variables
+# ============================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# ============================================
+# Logs
+# ============================================
+*.log
+logs/
+*.log.*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================
+# Databases
+# ============================================
+*.sqlite
+*.sqlite3
+*.db
+/backend/db/*.sqlite3
+/backend/db/*.sqlite3-*
+
+# ============================================
+# Temporary Files
+# ============================================
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+*~
+
+# ============================================
+# Documentation Build (if using tools)
+# ============================================
+.docusaurus/
+.cache/
+_site/
+
+# ============================================
+# Miscellaneous
+# ============================================
+.cursor/
+*.orig
+*.rej
+*.swo
+*.swn
+*.swm
+.vagrant/
+
+# ============================================
+# Keep Important Files
+# ============================================
+# Keep documentation
+!*.md
+!LICENSE
+!README*
+
+# Keep empty directories with .keep files
+!.keep
+!.gitkeep
+

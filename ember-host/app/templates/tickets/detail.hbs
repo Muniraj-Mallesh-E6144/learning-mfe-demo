@@ -1,0 +1,23 @@
+{{!-- Ticket Detail Template - Full React MFE --}}
+{{page-title "Ticket Details"}}
+
+<div class="ticket-detail-container">
+  <RenderReactComponent
+    @componentName="TicketDetail"
+    @moduleName="host_main"
+    @domElementSelectorId="ticket-detail-react"
+    @props={{hash
+      ticketId=@model.ticketId
+      apiHost=@model.apiHost
+    }}
+    @eventLifecycleCallback={{this.handleReactLifecycle}}
+    @devMode={{true}}
+  />
+</div>
+
+{{!--
+LEARNING NOTE:
+The ticketId from the URL (/tickets/123) is passed to React
+React fetches the full ticket data and renders the detail view
+--}}
+

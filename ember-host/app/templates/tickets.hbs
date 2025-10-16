@@ -1,0 +1,49 @@
+{{!-- Tickets Template - Full React MFE --}}
+{{page-title "Tickets"}}
+
+<div class="tickets-container">
+  {{!-- Minimal Ember wrapper, React handles everything else --}}
+  <RenderReactComponent
+    @componentName="TicketsList"
+    @moduleName="host_main"
+    @domElementSelectorId="tickets-list-react"
+    @props={{hash
+      apiHost=@model.apiHost
+    }}
+    @eventLifecycleCallback={{this.handleReactLifecycle}}
+    @messageCallback={{this.handleReactMessage}}
+    @devMode={{true}}
+  />
+</div>
+
+{{!-- 
+LEARNING NOTES:
+
+1. Full MFE Pattern:
+   - Ember just provides the route and container
+   - React handles: UI, data fetching, state, interactions
+   - This is for complex features being built in React
+
+2. Ember's Minimal Role:
+   - Routing: /tickets URL management
+   - Context: Passing API URLs, auth tokens
+   - Lifecycle: Mounting/unmounting React
+
+3. Why Full React MFE?
+   - Feature is completely new
+   - Team expertise in React
+   - Reusability across products
+   - Independent deployment (in advanced setups)
+
+4. Child Routes (tickets/detail):
+   - {{outlet}} would go here if needed
+   - But we let React handle its own routing
+   - React Router inside the MFE
+
+5. Communication:
+   - @eventLifecycleCallback: React lifecycle events
+   - @messageCallback: Custom messages from React
+   - Example: React can tell Ember "ticket created" -> Ember updates nav badge
+--}}
+{{outlet}}
+

@@ -1,0 +1,58 @@
+{{!-- Application Template - Root layout for entire app --}}
+{{page-title "Learning MFE Demo"}}
+
+<div class="app-container">
+  {{!-- Header Navigation --}}
+  <header class="app-header">
+    <div class="header-content">
+      <h1 class="app-title">
+        <LinkTo @route="dashboard">🚀 Learning MFE Demo</LinkTo>
+      </h1>
+      
+      <nav class="main-nav">
+        <LinkTo @route="dashboard" class="nav-link">Dashboard</LinkTo>
+        <LinkTo @route="users" class="nav-link">Users</LinkTo>
+        <LinkTo @route="tickets" class="nav-link">Tickets</LinkTo>
+        <LinkTo @route="about" class="nav-link">About</LinkTo>
+      </nav>
+    </div>
+  </header>
+
+  {{!-- Main Content Area --}}
+  <main class="app-main">
+    {{!-- This is where child routes render --}}
+    {{outlet}}
+  </main>
+
+  {{!-- Footer --}}
+  <footer class="app-footer">
+    <p>Learning MFE Demo | Ember + React Microfrontends | v1.0.0</p>
+  </footer>
+</div>
+
+{{!--
+LEARNING NOTES:
+
+1. {{outlet}}:
+   - This is where child routes render
+   - Dashboard route content goes here when at /dashboard
+   - Users route content goes here when at /users
+   - It's like {props.children} in React or <router-outlet> in Angular
+
+2. <LinkTo>:
+   - Ember's routing component
+   - @route parameter specifies the route name
+   - Automatically adds 'active' class to current route
+   - Handles client-side navigation (no page reload)
+
+3. {{page-title}}:
+   - Sets the browser tab title
+   - Can be nested: each route can add to the title
+   - Example: "Dashboard | Learning MFE Demo"
+
+4. Application Template:
+   - Always rendered (it's the root)
+   - Child routes render inside {{outlet}}
+   - Perfect for navigation, header, footer
+--}}
+

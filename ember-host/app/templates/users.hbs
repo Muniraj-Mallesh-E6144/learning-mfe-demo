@@ -1,0 +1,93 @@
+{{!-- Users Template - Ember with embedded React component --}}
+{{page-title "Users"}}
+
+<div class="users-container">
+  <div class="page-header">
+    <h2>👥 Users</h2>
+    <p class="subtitle">This page mixes Ember (header) with React (table component)</p>
+    
+    {{#if @model.usingMockData}}
+      <div class="mock-data-banner">
+        ℹ️ Using mock data (backend not connected)
+      </div>
+    {{/if}}
+  </div>
+
+  {{!-- React Component Embedded in Ember Page --}}
+  <div class="users-table-section">
+    <h3>Users Table (React Component)</h3>
+    
+    <RenderReactComponent
+      @componentName="UsersTable"
+      @moduleName="host_main"
+      @domElementSelectorId="users-table-react"
+      @props={{hash
+        users=@model.users
+        apiHost="http://localhost:3000"
+      }}
+      @eventLifecycleCallback={{this.handleReactLifecycle}}
+      @devMode={{true}}
+    />
+  </div>
+
+  {{!-- Fallback: Ember-rendered table if React fails --}}
+  {{#if @model.users}}
+    <details class="ember-fallback">
+      <summary>Ember Fallback (click to see)</summary>
+      <table class="users-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each @model.users as |user|}}
+            <tr>
+              <td>{{user.id}}</td>
+              <td>{{user.name}}</td>
+              <td>{{user.email}}</td>
+              <td><span class="badge badge-{{user.role}}">{{user.role}}</span></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </details>
+  {{/if}}
+</div>
+
+{{!--
+LEARNING NOTES:
+
+1. Hybrid Approach:
+   - Ember handles: Routing, data fetching, page structure
+   - React handles: Complex UI component (table with sorting, filtering)
+   - This is a common migration pattern
+
+2. <RenderReactComponent>:
+   - Custom component that loads React MFE
+   - @componentName: Which React component to load
+   - @moduleName: Which remote module (host_main)
+   - @domElementSelectorId: Unique ID for mounting
+   - @props: Data passed from Ember to React (must be serializable!)
+
+3. Props with {{hash}}:
+   - hash creates a JavaScript object
+   - users=@model.users passes the users array
+   - apiHost passes the API URL
+   - All props must be JSON-serializable (no functions!)
+
+4. Why Use React for the Table?
+   - Complex interactions (sorting, filtering, pagination)
+   - Reusable across multiple apps
+   - Rich React component ecosystem
+   - Performance optimizations (React.memo, virtualization)
+
+5. Fallback Pattern:
+   - If React fails to load, Ember can still show basic data
+   - Good for Progressive Enhancement
+   - <details> element for collapsible content
+--}}
+
